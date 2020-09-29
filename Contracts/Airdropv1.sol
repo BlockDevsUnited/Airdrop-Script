@@ -20,7 +20,7 @@ contract Airdrop{
         for(uint i = 0; i<recipients.length;i++){
             ERC20(token).transfer(recipients[i],randomNumber(i+1)*(10**ERC20(token).decimals()));
         }
-    }
+    a}
     function withdraw(address token) public {
         require(msg.sender==admin);
         ERC20(token).transfer(admin,ERC20(token).balanceOf(address(this)));
