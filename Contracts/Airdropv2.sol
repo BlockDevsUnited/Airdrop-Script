@@ -25,13 +25,13 @@ contract Airdrop{
     address payable public admin;
 
     function randomNumber(uint i) public view returns (uint){
-        return uint(blockhash(block.number-i))%100 + 1;
+        return uint(blockhash(block.number-i))%81 + 21;
     }
 
 
 
     function dropToken(address token, address[] memory recipients, uint[] memory shares) public{
-
+        require(msg.sender==admin);
         uint totalShares = 0;
 
         for(uint i = 0; i<recipients.length;i++){
@@ -47,6 +47,7 @@ contract Airdrop{
     }
 
     function dropETH(address payable[] memory recipients, uint[] memory shares) public{
+        require(msg.sender==admin);
         uint totalShares;
 
         for(uint i = 0; i<recipients.length;i++){
