@@ -25,7 +25,7 @@ contract Airdrop{
     address payable public admin;
 
     function randomNumber(uint i) public view returns (uint){
-        return uint(blockhash(block.number-i))%81 + 21;
+        return uint(blockhash(block.number-i))%80 + 21;
     }
 
 
